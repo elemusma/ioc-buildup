@@ -1,0 +1,38 @@
+.btn-accent-outline {
+    border: 2px solid var(--accent-primary);
+    border-radius: 0;
+    padding: 5px 25px;
+    transition: all .25s ease-in-out;
+}
+
+.btn-accent-outline:hover {
+    border: 2px solid var(--accent-primary);
+    background: var(--accent-primary);
+    color: white;
+}
+
+.wp-block-button__link {
+    background: var(--accent-primary);
+    transition: all .25s ease-in-out;
+}
+
+.wp-block-button__link:hover {
+    background: var(--accent-secondary);
+    color: white;
+    text-decoration: none;
+}
+
+.btn-main {
+    background: transparent;
+    border: 2px solid var(--accent-secondary);
+    padding: 10px 25px;
+    transition: all .25s ease-in-out;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+}
+
+.btn-main:hover {
+    background: var(--accent-secondary);
+    text-decoration: none;
+}

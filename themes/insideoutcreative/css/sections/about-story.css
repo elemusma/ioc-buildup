@@ -1,0 +1,82 @@
+/* start of general */
+.full-height:nth-child(odd) {
+    /* background: rgb(31, 61, 124);
+    background: linear-gradient(0deg,
+            rgba(232, 225, 220, 1) 0%,
+            rgba(220, 160, 56, 1) 100%); */
+    background: rgb(222, 196, 233);
+    background: linear-gradient(0deg, rgba(222, 196, 233, 1) 0%, rgba(163, 92, 193, 1) 80%);
+}
+
+.full-height:nth-child(even) {
+    background: rgb(31, 61, 124);
+    background: linear-gradient(180deg,
+            rgba(232, 225, 220, 1) 0%,
+            rgba(220, 160, 56, 1) 100%);
+    background: rgb(222, 196, 233);
+    background: linear-gradient(0deg, rgba(163, 92, 193, 1) 0%, rgba(222, 196, 233, 1) 80%);
+}
+
+@media screen and (max-width: 767px) {
+    .side-navbar {
+        top: unset !important;
+        bottom: 0;
+        right: 0 !important;
+        transform: translate(0, 0) !important;
+    }
+
+    .side-navbar ul {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .col p {
+        font-size: 24px;
+        line-height: 1.5;
+    }
+
+    li.active {
+        margin-right: 25px;
+    }
+}
+
+/* end of general */
+
+.side-navbar li a {
+    text-shadow: 2px 1px black;
+}
+
+.side-navbar li.active a {
+    background: white;
+    color: #374a7b !important;
+    -webkit-text-stroke: 1px;
+    margin-right: 10px;
+    font-size: 24px;
+    text-shadow: none;
+}
+
+.side-navbar li:after {
+    content: "";
+    background: #d2b572;
+    height: 100%;
+    width: 2px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.side-navbar li.active:after {
+    background: var(--accent-primary);
+}
+
+li.active a:after {
+    content: "";
+    background: url("/wp-content/uploads/2021/07/Arrow-Left-Blair-ITC.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 100%;
+    position: absolute;
+    right: -45px;
+    top: 0;
+}
