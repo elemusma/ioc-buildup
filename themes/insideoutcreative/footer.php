@@ -22,7 +22,7 @@ echo '</div>';
 echo '</div>';
 echo '</section>';
 
-echo '<section class="position-relative bg-accent-dark" style="padding:50px 0;" id="">';
+echo '<section class="position-relative bg-accent-quaternary" style="padding:50px 0;" id="">';
 
     $bgImg = get_sub_field('background_image');
 
@@ -40,7 +40,7 @@ echo '<section class="position-relative bg-accent-dark" style="padding:50px 0;" 
 
     echo '<div class="col-lg-12 text-center pb-5 ' . get_sub_field('content_col_classes') . '" style="' . get_sub_field('content_col_style') . '">';
 
-    echo '<h2 class="bold text-white mb-0 h1" style="letter-spacing:.2em;">ABOUT US</h2>';
+    // echo '<h2 class="bold text-white mb-0 h1" style="letter-spacing:.2em;">ABOUT US</h2>';
     echo '<h3 class="bold h5" style="color:#b9b3be;">CONTACT</h3>';
 
     echo '</div>';
@@ -65,10 +65,11 @@ echo '<section class="position-relative bg-accent-dark" style="padding:50px 0;" 
     echo '</div>';
 
     echo '<div class="col-12 pt-5 text-center">';
-wp_nav_menu(array(
-'menu' => 'footer',
-'menu_class'=>'menu d-flex flex-wrap list-unstyled justify-content-center text-uppercase'
-)); 
+
+// wp_nav_menu(array(
+// 'menu' => 'footer',
+// 'menu_class'=>'menu d-flex flex-wrap list-unstyled justify-content-center text-uppercase'
+// )); 
 
 echo '<a href="https://insideoutcreative.io/" target="_blank" rel="noopener noreferrer" style="" class="">';
         echo '<img src="https://insideoutcreative.io/wp-content/uploads/2023/01/developed-by-inside-out-creative-gray.png" style="width:150px;" class="h-auto ml-2" alt="">';

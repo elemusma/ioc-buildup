@@ -32,7 +32,10 @@ echo '<a href="' . home_url() . '" class="position-fixed z-1" style="top:25px;le
 
 $logo = get_field('logo','options'); 
 if($logo){
-echo wp_get_attachment_image($logo['id'],'full',"",['class'=>'h-auto','style'=>'width:75px;max-width:100%;transition:all 1s ease-in-out;','id'=>'logo-main']); 
+echo wp_get_attachment_image($logo['id'],'full',"",[
+    'class'=>'h-auto',
+    'style'=>'width:205px;max-width:100%;transition:all 1s ease-in-out;','id'=>'logo-main'
+]); 
 }
 
 echo '</a>';

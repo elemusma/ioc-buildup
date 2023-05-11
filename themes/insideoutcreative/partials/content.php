@@ -311,7 +311,7 @@ if($layout == 'Documents & Resources'){
     $gallery = get_sub_field('gallery');
     if( $gallery ): 
     echo '<div class="container">';
-    echo '<div class="row">';
+    echo '<div class="row justify-content-center">';
     $galleryCounter = 0;
     foreach( $gallery as $image ):
         $galleryCounter++;
@@ -634,6 +634,40 @@ echo '</section>';
         echo '</div>';
     echo '</section>';
 endwhile; endif;
+} elseif($layout == 'Two Columns'){
+    if(have_rows('two_columns_group')): while(have_rows('two_columns_group')): the_row();
+
+    echo '<section class="position-relative timeline-carousel-section ' . get_sub_field('classes') . '" style="padding:125px 0;' . get_sub_field('style') . '" id="' . get_sub_field('id') . '">';
+
+        echo get_template_part('partials/bg-img');
+
+        echo '<div class="container">';
+
+        echo '<div class="row row-content justify-content-center ' . get_sub_field('row_classes') . '" style="' . get_sub_field('row_style') . '">';
+
+        if(have_rows('column_left')): while(have_rows('column_left')): the_row();
+        echo '<div class="col-lg-6 ' . get_sub_field('column_classes') . '" style="' . get_sub_field('column_style') . '">';
+
+        echo get_sub_field('content');
+
+        echo '</div>';
+        endwhile; endif;
+
+        if(have_rows('column_right')): while(have_rows('column_right')): the_row();
+        echo '<div class="col-lg-6 ' . get_sub_field('column_classes') . '" style="' . get_sub_field('column_style') . '">';
+
+        echo get_sub_field('content');
+
+        echo '</div>';
+        endwhile; endif;
+
+
+
+        echo '</div>';
+        echo '</div>';
+    echo '</section>';
+
+    endwhile; endif;
 }
 
 endwhile; endif; // end of builder_repeater
