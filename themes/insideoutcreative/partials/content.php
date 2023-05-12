@@ -7,40 +7,17 @@ if($layout == 'Documents & Resources'){
     // start of resources
     if(have_rows('documents_resources_repeater')): while(have_rows('documents_resources_repeater')): the_row();
 
-    $img = get_sub_field('image');
+    // $img = get_sub_field('image');
     $title = get_sub_field('title');
 
     echo '<section class="position-relative" style="">';
 
-    // $bgImg = get_sub_field('background_image');
-
-    // if($bgImg){
-    //     echo wp_get_attachment_image($bgImg['id'],'full','',[
-    //         'class'=>'w-100 h-100 position-absolute bg-img',
-    //         'style'=>'top:0;left:0;object-fit:cover;pointer-events:none;'
-    //     ]);
-    // }
-
-    // if(have_rows('background_image')): while(have_rows('background_image')): the_row();
-
-    //     $image = get_sub_field('image');
-    //     echo wp_get_attachment_image($image['id'],'full','',[
-    //         'class'=>'w-100 h-100 position-absolute bg-img' . get_sub_field('image_col_classes'),
-    //         'style'=>'top:0;left:0;object-fit:cover;pointer-events:none;' . get_sub_field('image_col_style')
-    //     ]);
-
-    // endwhile; endif;
-
     echo get_template_part('partials/bg-img');
 
-    echo '<div class="position-absolute w-100 h-100" style="background:#707070;top:0;left:0;mix-blend-mode:multiply;pointer-events:none;"></div>';
-
-    // if($img){
-        //     echo wp_get_attachment_image($img['id'],'full','',['class'=>'h-auto','style'=>'width:400px;max-width:90%;']);
-        // }
+    // echo '<div class="position-absolute w-100 h-100" style="background:#707070;top:0;left:0;mix-blend-mode:multiply;pointer-events:none;"></div>';
         
     if($title){
-        echo '<div class="position-absolute" style="top:50%;left:50%;transform:translate(-50%,-50%);">';
+        echo '<div class="position-absolute" style="top:50%;left:50%;transform:translate(-50%,-80%);">';
         echo '<h1 class="text-white bold mb-0" style="font-size:5vw;">' . $title . '</h1>';
         echo '</div>';
     }
@@ -62,7 +39,7 @@ if($layout == 'Documents & Resources'){
     $link_target = $link['target'] ? $link['target'] : '_self';
 
 
-    echo '<a href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '" class="col-lg-3 col-md-6 col-resources" style="padding-top:150px;padding-bottom:25px;text-decoration:none;min-height:50vh;" data-aos="fade-up" data-aos-delay="' . $linksCounter . '00">';
+    echo '<a href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '" class="col-lg-3 col-md-6 col-resources" style="padding-top:150px;padding-bottom:100px;text-decoration:none;min-height:50vh;" data-aos="fade-up" data-aos-delay="' . $linksCounter . '00">';
     echo '<div class="position-absolute bg-accent w-100 h-100 col-resources-overlay" style="top:0;left:0;opacity:0;transition:all .25s ease-in-out;"></div>';
     // echo '<div>';
 
@@ -74,7 +51,7 @@ if($layout == 'Documents & Resources'){
     echo '</div>';
 
     echo '<div class="">';
-    echo '<span class="col-resources-title text-white" style="font-size:1.50rem;">' . esc_html( $link_title ) . '</span>';
+    echo '<span class="col-resources-title text-white" style="font-size:1.25rem;">' . esc_html( $link_title ) . '</span>';
     echo '<div class="bg-accent mt-3" style="height:8px;width:75px;"></div>';
 
     echo '<div class="resources-col-description text-white pt-2 small">';
@@ -646,7 +623,7 @@ endwhile; endif;
         echo '<div class="row row-content justify-content-center ' . get_sub_field('row_classes') . '" style="' . get_sub_field('row_style') . '">';
 
         if(have_rows('column_left')): while(have_rows('column_left')): the_row();
-        echo '<div class="col-lg-6 ' . get_sub_field('column_classes') . '" style="' . get_sub_field('column_style') . '">';
+        echo '<div class="col-lg-6 ' . get_sub_field('column_classes') . '" style="' . get_sub_field('column_style') . '" data-aos="fade-up">';
 
         echo get_sub_field('content');
 
@@ -654,7 +631,7 @@ endwhile; endif;
         endwhile; endif;
 
         if(have_rows('column_right')): while(have_rows('column_right')): the_row();
-        echo '<div class="col-lg-6 ' . get_sub_field('column_classes') . '" style="' . get_sub_field('column_style') . '">';
+        echo '<div class="col-lg-6 ' . get_sub_field('column_classes') . '" style="' . get_sub_field('column_style') . '" data-aos="fade-up">';
 
         echo get_sub_field('content');
 

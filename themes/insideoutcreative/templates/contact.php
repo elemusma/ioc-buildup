@@ -3,22 +3,28 @@
  * Template Name: Contact
  */
 get_header(); ?>
-<style>
+<!-- <style>
     .hero-content,.hero-img{
     display: none;
 }
 section.hero {
     display: none;
 }
-</style>
+</style> -->
 <?php 
 echo '<section class="pb-5 position-relative" style="overflow:hidden;padding-top:150px;">';
 
 if(has_post_thumbnail()){
-    the_post_thumbnail('full',array('class'=>'bg-img position-absolute w-100 h-100'));
+    the_post_thumbnail('full',array(
+        'class'=>'bg-img position-absolute w-100 h-100',
+        'style'=>'top:0;'
+    ));
 } else { 
     $globalPlaceholderImg = get_field('global_placeholder_image','options');
-    echo wp_get_attachment_image($globalPlaceholderImg['id'],'full','',['class'=>'bg-img position-absolute w-100 h-100']);
+    echo wp_get_attachment_image($globalPlaceholderImg['id'],'full','',[
+        'class'=>'bg-img position-absolute w-100 h-100',
+        'style'=>'top:0;'
+    ]);
 } 
     echo '<div class="container pb-4">';
     echo '<div class="row justify-content-center">';

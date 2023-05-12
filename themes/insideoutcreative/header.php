@@ -28,15 +28,22 @@ if(get_field('body','options')) { the_field('body','options'); }
 // echo '<div class="row align-items-center">';
 
 // echo '<div class="col-lg-3 col-6 text-center">';
-echo '<a href="' . home_url() . '" class="position-fixed z-1" style="top:25px;left:35px;">';
+echo '<a href="' . home_url() . '" class="position-fixed z-2" style="top:25px;left:35px;">';
 
 $logo = get_field('logo','options'); 
-if($logo){
+$logoFooter = get_field('logo_footer','options'); 
+// if($logo){
 echo wp_get_attachment_image($logo['id'],'full',"",[
-    'class'=>'h-auto',
-    'style'=>'width:205px;max-width:100%;transition:all 1s ease-in-out;','id'=>'logo-main'
-]); 
-}
+    'class'=>'h-auto active',
+    'style'=>'width:205px;max-width:100%;transition:all 1s ease-in-out;',
+    'id'=>'mainLogo'
+]);
+echo wp_get_attachment_image($logoFooter['id'],'full',"",[
+    'class'=>'h-auto position-absolute inactive',
+    'style'=>'width:205px;max-width:100%;transition:all 1s ease-in-out;left:0;opacity:0;',
+    'id'=>'secondaryLogo'
+]);
+// }
 
 echo '</a>';
 // echo '</div>';

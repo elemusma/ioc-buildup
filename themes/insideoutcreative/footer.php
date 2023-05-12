@@ -4,7 +4,7 @@ echo '<footer class="" style="">';
 echo '<section class="pt-5 pb-5">';
 echo '<div class="container">';
 echo '<div class="row justify-content-center align-items-center">';
-echo '<div class="col-lg-4 col-md-6 col-10 text-center">';
+echo '<div class="col-lg-4 col-md-6 col-10 text-center" data-aos="fade-up">';
 echo '<a href="' . home_url() . '/resources/">';
 
 $logo = get_field('logo','options'); $logoFooter = get_field('logo_footer','options'); 
@@ -47,14 +47,14 @@ echo '<section class="position-relative bg-accent-quaternary" style="padding:50p
 
 
 
-    echo '<div class="col-md-6 text-center pb-md-0 pb-5 ' . get_sub_field('content_col_classes') . '" style="' . get_sub_field('content_col_style') . '">';
+    echo '<div class="col-md-6 text-center pb-md-0 pb-5 ' . get_sub_field('content_col_classes') . '" style="' . get_sub_field('content_col_style') . '" data-aos="fade-up">';
 
     echo do_shortcode('[gravityform id="1" title="false" description="false" ajax="true"]');
 
     echo '</div>';
 
 
-    echo '<div class="col-md-4">';
+    echo '<div class="col-md-4" data-aos="fade-up">';
 
 
 

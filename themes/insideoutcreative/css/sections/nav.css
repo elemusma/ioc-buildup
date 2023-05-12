@@ -1,3 +1,16 @@
+#mainLogo.active,
+#secondaryLogo.active {
+    opacity: 1 !important;
+}
+
+#mainLogo.inactive,
+#secondaryLogo.inactive {
+    opacity: 0;
+}
+
+/* below isn't needed */
+
+
 ul.menu li {
     padding: 9px 0;
     position: relative;
