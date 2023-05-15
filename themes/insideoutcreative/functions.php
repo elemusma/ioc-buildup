@@ -1,6 +1,6 @@
 <?php
 
-function onerentalatatime_stylesheets() {
+function buildup_stylesheets() {
 	wp_enqueue_style('style', get_stylesheet_uri() );
 
 	wp_enqueue_style('bootstrap', get_theme_file_uri('/css/bootstrap.min.css'));
@@ -39,10 +39,10 @@ wp_enqueue_style('aspira', get_theme_file_uri('/aspira-font/aspira-font.css'));
 wp_enqueue_style('coromant-garamond', '//use.typekit.net/fqe2slt.css');
 
 }
-add_action('wp_enqueue_scripts', 'onerentalatatime_stylesheets');
+add_action('wp_enqueue_scripts', 'buildup_stylesheets');
 
 // for footer
-function onerentalatatime_stylesheets_footer() {
+function buildup_stylesheets_footer() {
 	// wp_enqueue_style('style-footer', get_theme_file_uri('/css/style-footer.css'));
 	// owl carousel
 	wp_enqueue_style('owl.carousel.min', get_theme_file_uri('/owl-carousel/owl.carousel.min.css'));
@@ -78,7 +78,7 @@ function onerentalatatime_stylesheets_footer() {
 		}
 	}
 	
-add_action('get_footer', 'onerentalatatime_stylesheets_footer');
+add_action('get_footer', 'buildup_stylesheets_footer');
 
 // loads enqueued javascript files deferred
 function mind_defer_scripts( $tag, $handle, $src ) {
@@ -102,7 +102,7 @@ function mind_defer_scripts( $tag, $handle, $src ) {
   } 
   add_filter( 'script_loader_tag', 'mind_defer_scripts', 10, 3 );
 
-function onerentalatatime_menus() {
+function buildup_menus() {
  register_nav_menus( array(
    'primary' => __( 'Primary' )));
 register_nav_menus( array(
@@ -112,7 +112,7 @@ register_nav_menus( array(
  add_theme_support('post-thumbnails');
 }
 
-add_action('after_setup_theme', 'onerentalatatime_menus');
+add_action('after_setup_theme', 'buildup_menus');
 
 if( function_exists('acf_add_options_page') ) {
 
@@ -281,9 +281,10 @@ function get_latest_videos_from_youtube_channel() {
     // Send a request to the API to get the latest 10 videos from a specific channel
     $searchResponse = $youtube->search->listSearch('id,snippet', array(
         // 'channelId' => $GLOBALS['youtube'],
-        'channelId' => 'UCmK_PnRidizNVNw7FqivYCQ',
+        // 'channelId' => 'UCzDAvtSdnoLEz_re0ABaANg', // BrownSurfing
+        'channelId' => 'UCNlzIzvhDCggZYg5DU-jQ5g', // AdamZwingler
         // 'channelId' => 'UCNlzIzvhDCggZYg5DU-jQ5g',
-		// 'forUsername' => 'OneRentalataTime',
+		// 'forUsername' => 'buildup',
         'type' => 'video',
         'order' => 'date',
         'maxResults' => 4,
