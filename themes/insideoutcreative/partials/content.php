@@ -645,7 +645,141 @@ endwhile; endif;
     echo '</section>';
 
     endwhile; endif;
-}
+} elseif( $layout == 'Process' ) {
+    if(have_rows('process_group')): while(have_rows('process_group')): the_row();
+    
+        echo '<section class="position-relative process-section ' . get_sub_field('classes') . '" style="background:#464646;padding:75px 0;border-top:75px solid black;border-bottom:75px solid black;' . get_sub_field('style') . '" id="' . get_sub_field('id') . '">';
+    
+        echo get_template_part('partials/borders-gold');
+    
+        $bgImg = get_sub_field('background_image');
+    
+        if($bgImg){
+            echo wp_get_attachment_image($bgImg['id'],'full','',[
+                'class'=>'w-100 h-100 position-absolute bg-img',
+                'style'=>'top:0;left:0;object-fit:cover;pointer-events:none;'
+            ]);
+        }
+    
+        echo '<div class="container">';
+        echo '<div class="row">';
+        echo '<div class="col-12 text-center text-white pb-5">';
+    
+        echo '<div data-aos="fade-up">';
+        echo get_sub_field('content_top');
+        echo '</div>';
+    
+        echo '</div>';
+        echo '</div>';
+    
+        // $pages = get_sub_field('pages');
+    
+        if(have_rows('columns_repeater')):
+            echo '<div class="row justify-content-center">';
+            $pagesCounter=0;
+            while(have_rows('columns_repeater')): the_row();
+    
+            $pagesCounter++;
+            // sprintf("%02d", $pagesCounter)
+    
+            echo '<div class="col-lg-4 col-md-6 text-white mb-5 col-services" style="text-decoration:none;">';
+            echo '<div class="h-100" data-aos="fade-up" data-aos-delay="' . $pagesCounter . '50">';
+            // echo '<a href="' . get_the_permalink() . '" class="col-lg-4 col-md-6 text-white mb-5 col-services" style="text-decoration:none;">';
+            echo '<div class="position-relative pl-5 pr-5 h-100 col-services-hover" style="padding-top:100px;padding-bottom:100px;">';
+    
+    
+            // start of hover box
+            echo '<div class="hover-box bg-accent-dark position-absolute w-100 h-100 z-1 d-flex align-items-center justify-content-center pl-5 pr-5 col-services-hover-content" style="border:6px solid #fbcf02;top:0;left:0;transition:all .25s ease-in-out;">';
+    
+            echo '<div>';
+            echo get_sub_field('content_hover');
+            echo '</div>';
+    
+            echo '</div>';
+            // end of hover box
+    
+    
+            echo '<div class="position-absolute w-100 h-100 bg-accent-quaternary" style="top:0;left:0;mix-blend-mode:overlay;opacity:.28;border:2px solid var(--accent-primary);"></div>';
+    
+            echo '<div class="position-relative pb-3 h-100">';
+    
+            echo '<span class="cormorant-garamond h1">' . sprintf("%02d", $pagesCounter) . '</span>';
+    
+            echo '<h3 class="mb-5 d-block coromant-garamond pt-5 pl-5" style="font-size:30px;letter-spacing:0em;">' . get_sub_field('title') . '</h3>';
+    
+            echo '<span class="mb-5 d-block coromant-garamond pl-5 h4" style="">' . get_sub_field('subtitle') . '</span>';
+    
+            
+    
+    
+            
+            echo '</div>';
+    
+            echo '<div class="d-flex align-items-end position-absolute">';
+            echo '<div style="height: 35px;
+            width: 35px;
+            border: 1px solid var(--accent-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-right: 15px;">';
+            echo '<span class="plus-sign">&plus;</span>';
+            echo '</div>';
+    
+            echo '<div class="position-relative">';
+            echo '<h6 class="font-italic">More Information</h6>';
+    
+            echo '<div class="position-absolute" style="border-bottom:8px solid var(--accent-primary);width:75px;bottom:-15px;left:0;"></div>';
+    
+            echo '</div>';
+            echo '</div>';
+    
+            echo '</div>';
+            echo '</div>';
+            echo '</div>'; // end of col
+            // echo '</a>';
+            endwhile;
+                
+                echo '</div>';
+            endif;
+        
+            echo '<div class="row">';
+        echo '<div class="col-12 text-center pb-5">';
+    
+        echo '<div data-aos="fade-up">';
+        echo get_sub_field('content_bottom');
+        echo '</div>';
+    
+        echo '</div>';
+        echo '</div>';
+    
+        echo '</div>';
+        
+        echo '</section>';
+    
+    endwhile; endif;
+    } elseif ( $layout == 'Contact' ) {
+    echo '<section class="pb-5 position-relative" style="overflow:hidden;padding-top:150px;">';
+
+        echo get_template_part('partials/bg-img');
+
+    echo '<div class="container pb-4">';
+    echo '<div class="row justify-content-center">';
+    echo '<div class="col-md-9">';
+    echo '<div class="content position-relative pt-5 pb-5 p-4">';
+    echo '<div class="position-absolute bg-white" style="opacity:.75;width:100%;height:100%;top:0;left:0;"></div>';
+    echo '<div class="position-relative">';
+    if(have_posts()) : while(have_posts()): the_post(); the_content(); endwhile; else:
+    echo '<p>Sorry, no posts matched your criteria.</p>';
+    endif;
+    echo '</div>';
+    echo '</div>';
+    echo '</div>';
+    echo '</div>';
+    echo '</div>';
+    echo '</section>';
+    }
 
 endwhile; endif; // end of builder_repeater
 ?>

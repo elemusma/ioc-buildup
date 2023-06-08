@@ -11,7 +11,7 @@
 /* below isn't needed */
 
 
-ul.menu li {
+/* ul.menu li {
     padding: 9px 0;
     position: relative;
 }
@@ -72,14 +72,8 @@ ul.menu>li>a {
 @media screen and (max-width:1199px) {
     .nav ul.menu {
         display: block !important;
-        /* padding: 0 20px 20px; */
     }
 
-    /* ul.menu > li > a {
-        color:white;
-        font-weight: 700;
-        text-decoration:none;
-    } */
     ul.menu>li.current-menu-item>a {
         text-decoration: underline;
     }
@@ -127,7 +121,7 @@ ul.menu>li>a {
         opacity: 0;
     }
 
-    /* hides nav items */
+
     div#navItems {
         height: 100vh;
         overflow: scroll;
@@ -172,12 +166,6 @@ ul.menu>li>a {
     }
 }
 
-/* @media screen and (max-width:1199px) {
-    ul.sub-menu {
-        height:100%!important;
-    }
-} */
-
 ul.sub-menu {
     list-style: none;
     overflow: hidden;
@@ -202,7 +190,7 @@ ul.sub-menu li a {
     }
 }
 
-/* for blog and other pages */
+
 .page-template-blog header#header,
 .single header#header,
 .archive header#header,
@@ -211,5 +199,4 @@ ul.sub-menu li a {
 .search header#header {
     background: #f3be7c;
 }
-
-/* website specific css */
+ */

@@ -1,3 +1,4 @@
+/* start of documents & resources */
 .row-resources .col-resources {
     border: 1px solid rgba(255, 255, 255, .5);
 }
@@ -77,3 +78,58 @@
 }
 
 /* end of courses */
+
+/* start of process */
+.hover-box {
+    opacity: 0;
+}
+
+.col-services-hover:hover .hover-box {
+    opacity: 1;
+}
+
+.col-services-hover-content li {
+    position: relative;
+    list-style: none;
+    color: #2a3136;
+    font-style: italic;
+    font-family: "proxima_novabold";
+}
+
+.col-services-hover-content li:before {
+    content: "";
+    background: url('https://insideoutcreative.io/wp-content/uploads/2023/02/Arrow-Right-White.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 5px;
+    left: -30px;
+}
+
+/* end of process */
+
+/* start of timeline */
+.col-timeline-carousel:hover .overlay-hover {
+    opacity: 0 !important;
+}
+
+/* end of timeline */
+
+/* start of services home */
+
+/* .col-services img,
+.col-services-overlay {
+    transition: all .25s ease-in-out;
+}
+
+.col-services:hover img {
+    transform: scale(1.05);
+}
+
+.col-services:hover .col-services-overlay {
+    opacity: 0 !important;
+} */
+
+/* end of services home */
