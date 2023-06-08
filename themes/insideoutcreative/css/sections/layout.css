@@ -493,6 +493,10 @@ body {
     }
 }
 
+.d-block {
+    display: block;
+}
+
 /* Display Flex */
 .d-flex {
     display: flex !important;

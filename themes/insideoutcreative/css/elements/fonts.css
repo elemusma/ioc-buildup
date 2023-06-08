@@ -40,6 +40,10 @@ a:hover {
   color: black;
 }
 
+.text-white {
+  color: white;
+}
+
 a.text-black:hover {
   color: black;
 }
