@@ -117,6 +117,14 @@
 
 /* end of timeline */
 
+/* start of guides */
+.col-guides:hover .guides-link-overlay {
+    background: var(--accent-primary) !important;
+    opacity: .38;
+}
+
+/* end of guides */
+
 /* start of services home */
 
 /* .col-services img,

@@ -1,11 +1,11 @@
 <?php
 
 echo '<footer class="" style="">';
-echo '<section class="pt-5 pb-5">';
+echo '<section class="" style="padding:50px 0px;">';
 echo '<div class="container">';
 echo '<div class="row justify-content-center align-items-center">';
 echo '<div class="col-lg-4 col-md-6 col-10 text-center" data-aos="fade-up">';
-echo '<a href="' . home_url() . '/resources/">';
+echo '<a href="' . home_url() . '/">';
 
 $logo = get_field('logo','options'); $logoFooter = get_field('logo_footer','options'); 
 

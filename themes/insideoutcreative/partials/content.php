@@ -649,18 +649,9 @@ endwhile; endif;
     if(have_rows('process_group')): while(have_rows('process_group')): the_row();
     
         echo '<section class="position-relative process-section ' . get_sub_field('classes') . '" style="background:#464646;padding:75px 0;border-top:75px solid black;border-bottom:75px solid black;' . get_sub_field('style') . '" id="' . get_sub_field('id') . '">';
-    
-        echo get_template_part('partials/borders-gold');
-    
-        $bgImg = get_sub_field('background_image');
-    
-        if($bgImg){
-            echo wp_get_attachment_image($bgImg['id'],'full','',[
-                'class'=>'w-100 h-100 position-absolute bg-img',
-                'style'=>'top:0;left:0;object-fit:cover;pointer-events:none;'
-            ]);
-        }
-    
+
+        echo get_template_part('partials/bg-img');
+
         echo '<div class="container">';
         echo '<div class="row">';
         echo '<div class="col-12 text-center text-white pb-5">';
@@ -678,11 +669,11 @@ endwhile; endif;
             echo '<div class="row justify-content-center">';
             $pagesCounter=0;
             while(have_rows('columns_repeater')): the_row();
-    
+
             $pagesCounter++;
             // sprintf("%02d", $pagesCounter)
-    
-            echo '<div class="col-lg-4 col-md-6 text-white mb-5 col-services" style="text-decoration:none;">';
+
+            echo '<div class="col-lg-4 col-md-6 text-white mb-5 col-services" style="text-decoration:none;margin-bottom:2rem;">';
             echo '<div class="h-100" data-aos="fade-up" data-aos-delay="' . $pagesCounter . '50">';
             // echo '<a href="' . get_the_permalink() . '" class="col-lg-4 col-md-6 text-white mb-5 col-services" style="text-decoration:none;">';
             echo '<div class="position-relative pl-5 pr-5 h-100 col-services-hover" style="padding-top:100px;padding-bottom:100px;">';
@@ -699,15 +690,13 @@ endwhile; endif;
             // end of hover box
     
     
-            echo '<div class="position-absolute w-100 h-100 bg-accent-quaternary" style="top:0;left:0;mix-blend-mode:overlay;opacity:.28;border:2px solid var(--accent-primary);"></div>';
+            echo '<div class="position-absolute h-100 bg-accent-quaternary" style="top:0;left:0;mix-blend-mode:overlay;opacity:.28;border:2px solid var(--accent-primary);width:99%;"></div>';
     
             echo '<div class="position-relative pb-3 h-100">';
     
-            echo '<span class="cormorant-garamond h1">' . sprintf("%02d", $pagesCounter) . '</span>';
+            echo '<span class="h1" style="font-size:3rem;">' . sprintf("%02d", $pagesCounter) . '</span>';
     
-            echo '<h3 class="mb-5 d-block coromant-garamond pt-5 pl-5" style="font-size:30px;letter-spacing:0em;">' . get_sub_field('title') . '</h3>';
-    
-            echo '<span class="mb-5 d-block coromant-garamond pl-5 h4" style="">' . get_sub_field('subtitle') . '</span>';
+            echo '<h3 class="bold" style="font-size:30px;letter-spacing:0em;padding-left:2rem;">' . get_sub_field('title') . '</h3>';
     
             
     
@@ -715,7 +704,7 @@ endwhile; endif;
             
             echo '</div>';
     
-            echo '<div class="d-flex align-items-end position-absolute">';
+            echo '<div class="d-flex align-items-center position-absolute">';
             echo '<div style="height: 35px;
             width: 35px;
             border: 1px solid var(--accent-primary);
@@ -728,7 +717,8 @@ endwhile; endif;
             echo '</div>';
     
             echo '<div class="position-relative">';
-            echo '<h6 class="font-italic">More Information</h6>';
+            // echo '<h6 class="font-italic">More Information</h6>';
+            echo '<span class="cormorant-garamond" style="font-style:italic;">' . get_sub_field('subtitle') . '</span>';
     
             echo '<div class="position-absolute" style="border-bottom:8px solid var(--accent-primary);width:75px;bottom:-15px;left:0;"></div>';
     
@@ -779,7 +769,116 @@ endwhile; endif;
     echo '</div>';
     echo '</div>';
     echo '</section>';
-    }
+} elseif ($layout == 'Documents') {
+    if(have_rows('documents_group')): while(have_rows('documents_group')): the_row();
+    
+    echo '<section class="position-relative documents-section bg-accent-secondary ' . get_sub_field('classes') . '" style="padding:75px 0px;' . get_sub_field('style') . '" id="' . get_sub_field('id') . '">';
+    
+        echo get_template_part('partials/bg-img');
+
+        echo '<div class="container">';
+        echo '<div class="row">';
+        echo '<div class="col-12 text-center text-white ' . get_sub_field('content_col_classes') . '" style="' . get_sub_field('content_col_style') . '">';
+    
+        echo '<div data-aos="fade-up">';
+        echo get_sub_field('content');
+        echo '</div>';
+    
+        echo '</div>';
+        echo '</div>';
+
+        if(have_rows('buttons_repeater')): 
+            echo '<div class="row">';
+            $buttonsCounter = 0;
+            while(have_rows('buttons_repeater')): the_row();
+            $buttonsCounter++;
+            if($buttonsCounter > 4) {
+                $buttonsCounter = 1;
+            }
+            $link = get_sub_field('link');
+            if( $link ): 
+            $link_url = $link['url'];
+            $link_title = $link['title'];
+            $link_target = $link['target'] ? $link['target'] : '_self';
+            echo '<div class="col-lg-3 col-md-6" style="margin:15px 0px;" data-aos="fade-up" data-aos-delay="' . $buttonsCounter . '00">';
+            echo '<a class="btn-secondary h-100 d-flex align-items-center justify-content-center text-white text-center" href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '" style="">';
+            echo '<span class="bold" style="padding:15px;">' . esc_html( $link_title ) . '</span>';
+            echo '</a>';
+            echo '</div>';
+            endif;
+            endwhile;
+            echo '</div>';
+        endif;
+
+
+        echo '</div>';
+        
+    echo '</section>';
+
+endwhile; endif;
+} elseif ($layout == 'Guides') {
+
+    if(have_rows('guides_group')): while(have_rows('guides_group')): the_row();
+    
+    echo '<section class="position-relative guides-section ' . get_sub_field('classes') . '" style="padding:75px 0px;' . get_sub_field('style') . '" id="' . get_sub_field('id') . '">';
+    
+        echo get_template_part('partials/bg-img');
+
+        echo '<div class="position-absolute h-100" style="background:#929292;width:1px;top:0;left:33.33333%;"></div>';
+        echo '<div class="position-absolute h-100" style="background:#929292;width:1px;top:0;left:66.66666%;"></div>';
+        echo '<div class="position-absolute w-100" style="background:#929292;height:1px;top:50%;left:0%;"></div>';
+
+        echo '<div class="container">';
+
+        echo '<div class="row">';
+        echo '<div class="col-12 text-center text-white ' . get_sub_field('content_col_classes') . '" style="' . get_sub_field('content_col_style') . '">';
+    
+        echo '<div data-aos="fade-up">';
+        echo get_sub_field('content');
+        echo '</div>';
+    
+        echo '</div>';
+        echo '</div>';
+
+        if(have_rows('links_repeater')): 
+            echo '<div class="row">';
+            $buttonsCounter = 0;
+            while(have_rows('links_repeater')): the_row();
+            $buttonsCounter++;
+            if($buttonsCounter > 4) {
+                $buttonsCounter = 1;
+            }
+            $link = get_sub_field('link');
+            if( $link ): 
+            $link_url = $link['url'];
+            $link_title = $link['title'];
+            $link_target = $link['target'] ? $link['target'] : '_self';
+            echo '<div class="col-lg-4 col-md-6 col-guides" style="margin:15px 0px;" data-aos="fade-up" data-aos-delay="' . $buttonsCounter . '00">';
+
+            // echo '<div class="position-relative text-white text-center">';
+            echo '<a class="w-100 d-block position-relative text-center text-white guides-link" href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '" style="padding: 135px 0 200px;text-decoration:none;">';
+
+            echo '<div class="position-absolute h-100 w-100 guides-link-overlay" style="background:#b2ac98;opacity:.2;top:0;left:0;transition:all .25s ease-in-out;"></div>';
+
+            echo '<div class="bg-accent" style="height:4px;width:100px;margin:auto;"></div>';
+
+            echo '<span class="d-block bold" style="padding-top:20px;">' . esc_html( $link_title ) . '</span>';
+            
+            echo '</a>';
+            // echo '</div>';
+
+            echo '</div>';
+            endif;
+            endwhile;
+            echo '</div>';
+        endif;
+
+        echo '</div>';
+
+    echo '</section>';
+
+    endwhile; endif;
+}
 
 endwhile; endif; // end of builder_repeater
 ?>
