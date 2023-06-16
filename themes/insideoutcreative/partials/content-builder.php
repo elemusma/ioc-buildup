@@ -878,6 +878,22 @@ endwhile; endif;
     echo '</section>';
 
     endwhile; endif;
+} elseif ($layout == 'Popup') {
+    if(have_rows('popup_group')): while(have_rows('popup_group')): the_row();
+
+    echo '<div class="modal-content ' . get_sub_field('modal_popup_class') . ' position-fixed w-100 h-100 ' . get_sub_field('content_col_classes') . '" style="opacity:0;pointer-events:none;z-index:10;' . get_sub_field('content_col_style') . '">';
+    echo '<div class="bg-overlay"></div>';
+    echo '<div class="bg-content">';
+    echo '<div class="bg-content-inner">';
+    echo '<div class="close" id="">X</div>';
+    echo '<div>';
+    echo get_sub_field('content');
+    echo '</div>';
+    echo '</div>';
+
+    echo '</div>';
+    echo '</div>';
+    endwhile; endif;
 }
 
 endwhile; endif; // end of builder_repeater

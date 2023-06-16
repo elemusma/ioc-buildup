@@ -174,23 +174,32 @@ function btn_shortcode( $atts, $content = null ) {
 	
 	'class' => '',
 	
-	'href' => '#',
+	'href' => '',
 	
 	'style' => '',
 	
-	'target' => ''
+	'target' => '',
+
+	'id' => '',
+
+	'aria-label' => ''
 	
 	), $atts );
-	
-	// return '<a class="btn-accent-primary" href="' . esc_attr($a['href']) . '" target="' . esc_attr($a['target']) . '">' . $content . '</a>';
-	
-	return '<a class="btn-main ' . esc_attr($a['class']) . '" href="' . esc_attr($a['href']) . '" style="' . esc_attr($a['style']) . '" target="' . esc_attr($a['target']) . '">' . $content . '</a>';
+
+	$id = esc_attr($a['id']);
+
+	// Check if the ID contains the word "modal"
+	if (strpos($id, 'modal') !== false) {
+		return '<span class="btn-main ' . esc_attr($a['class']) . '" aria-label="' . esc_attr($a['aria-label']) . '" style="' . esc_attr($a['style']) . '" target="' . esc_attr($a['target']) . '" id="' . esc_attr($a['id']) . '">' . $content . '</span>';
+	} else {
+		return '<a class="btn-main ' . esc_attr($a['class']) . '" href="' . esc_attr($a['href']) . '" style="' . esc_attr($a['style']) . '" target="' . esc_attr($a['target']) . '" id="' . esc_attr($a['id']) . '">' . $content . '</a>';
+	}
 	
 	// [button href="#" class="btn-main" style=""]Learn More[/button]
 	
 	}
 	
-	add_shortcode( 'button', 'btn_shortcode' );
+add_shortcode( 'button', 'btn_shortcode' );
 
 function spacer_shortcode( $atts, $content = null ) {
 
@@ -281,11 +290,7 @@ function get_latest_videos_from_youtube_channel() {
 
     // Send a request to the API to get the latest 10 videos from a specific channel
     $searchResponse = $youtube->search->listSearch('id,snippet', array(
-        // 'channelId' => $GLOBALS['youtube'],
-        // 'channelId' => 'UCzDAvtSdnoLEz_re0ABaANg', // BrownSurfing
         'channelId' => 'UCNlzIzvhDCggZYg5DU-jQ5g', // AdamZwingler
-        // 'channelId' => 'UCNlzIzvhDCggZYg5DU-jQ5g',
-		// 'forUsername' => 'buildup',
         'type' => 'video',
         'order' => 'date',
         'maxResults' => 4,
