@@ -20,3 +20,9 @@ Theme Author URI: https://insideoutcreative.com/
         margin-top: 45px;
     }
 }
+
+div#content {
+    margin: auto;
+    padding: 100px;
+    border-top: 125px solid black;
+}
