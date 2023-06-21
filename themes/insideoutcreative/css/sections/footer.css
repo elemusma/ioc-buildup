@@ -1,0 +1,15 @@
+footer .si svg {
+    fill: white;
+}
+
+footer .svg-icon {
+    border: 1px solid white;
+}
+
+footer ul.menu li a {
+    color: #636363;
+}
+
+footer div#gform_confirmation_message_1 {
+    color: white;
+}

@@ -1,0 +1,47 @@
+.wp-block-button__link {
+    background: var(--accent-primary);
+    transition: all .25s ease-in-out;
+}
+
+.wp-block-button__link:hover {
+    background: var(--accent-secondary);
+    color: white;
+    text-decoration: none;
+}
+
+.btn-main {
+    background: transparent;
+    border: 2px solid var(--accent-secondary);
+    padding: 10px 25px;
+    transition: all .25s ease-in-out;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+}
+
+.btn-secondary {
+    background: #b2ac98;
+    border: 6px solid #b2ac98;
+    text-decoration: none;
+}
+
+.btn-secondary,
+.btn-secondary * {
+    transition: all .25s ease-in-out;
+}
+
+.btn-secondary:hover {
+    background: #d5aa3d;
+    border-color: #fbcf02;
+}
+
+.btn-secondary:hover span {
+    color: black !important;
+}
+
+.btn-main:hover {
+    background: #020202;
+    color: white;
+    border-color: #020202;
+    text-decoration: none;
+}
